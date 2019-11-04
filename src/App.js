@@ -3,26 +3,22 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from 'react-router-dom'
+import Nav from './common/Nav'
 import './App.css';
 
 function App() {
   return (
     <>
     <Router>
-      <div class="Context">
+      <div className="Context">
         <Switch>
-          <Route path="/" component={Home} exact></Route>
+          <Route path="/" component={Post} exact></Route>
           <Route path="/User" component={User} exact></Route>
-          <Route path="/Post" component={Post} exact></Route>
+          <Route path="/Search" component={Search} exact></Route>
         </Switch>
       </div>
-      <div className="Nav">
-        <Link to="/">Home</Link>
-        <Link to="/User">User</Link>
-        <Link to="/Post">Post</Link>
-      </div>
+      <Nav />
     </Router>
     </>
   )
@@ -32,6 +28,6 @@ const User = () => <div>user</div>
 
 const Post = () => <div>Post</div>
 
-const Home = () => <div>Home</div>
+const Search = () => <div>Search</div>
 
 export default App;
