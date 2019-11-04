@@ -4,6 +4,7 @@ import {
   Switch,
   Route,
 } from 'react-router-dom'
+import { Button } from 'antd'
 import Nav from './common/Nav'
 import './App.css';
 
@@ -24,7 +25,13 @@ function App() {
   )
 }
 
-const User = () => <div>user</div>
+const User = () => {
+  return (
+    <>
+    <Button type="primary">点击我</Button>
+    </>
+  )
+}
 
 const Post = () => <div>Post</div>
 
