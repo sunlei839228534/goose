@@ -11,6 +11,7 @@
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
     "less-loader": "^5.0.0",
+    "mysql2": "^2.0.0",
     "nodemon": "^1.19.4",
     "react": "^16.11.0",
     "react-app-rewired": "^2.1.4",
