@@ -5,7 +5,10 @@ const router = require('./app/router')
 const catchError = require('./app/middlewares/exception') //全局异常处理函数
 
 const app = new Koa()
+
+//全局异常捕获
 app.use(catchError)
+
 app.use(bodyparser())
 
 app.use(router.routes(),router.allowedMethods())
