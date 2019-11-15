@@ -4,7 +4,6 @@ const bodyparser = require('koa-bodyparser')
 const router = require('./app/router')
 const user = require('./app/router/user')
 const catchError = require('./app/middlewares/exception') //全局异常处理函数
-
 require('./app/models/user')
 
 const app = new Koa()
