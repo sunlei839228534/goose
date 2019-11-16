@@ -40,6 +40,9 @@ class RegisterValidator extends LinValidator {
         email: email
       }
     })
+    if(user) {
+      throw new Error('email 重复!')
+    }
   }
 
 }
