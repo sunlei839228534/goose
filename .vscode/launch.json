@@ -5,6 +5,12 @@
       "type": "node",
       "request": "launch",
       "name": "启动程序",
+      "program": "${fileDirname}/${fileBasenameNoExtension}"//"${workspaceFolder}\\test.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "启动程序",
       "program": "${fileDirname}/${fileBasenameNoExtension}"//"${workspaceFolder}\\server.js"
     }
   ]

@@ -25,6 +25,7 @@ class Success extends HttpException {
   }
 }
 
+
 module.exports = {
   HttpException,
   ParameterException,

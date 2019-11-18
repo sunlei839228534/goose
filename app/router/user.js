@@ -13,9 +13,12 @@ router.post('/register',async (ctx,next) => {
     password: v.get('body.password1'),
     nickname: v.get('body.nickname')
   }
-  
   const r = await User.create(user)
   throw new Success()
+})
+
+router.post('/token',async (ctx,next) => {
+  
 })
 
 module.exports = router

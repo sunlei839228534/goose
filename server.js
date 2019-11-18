@@ -14,6 +14,7 @@ app.use(catchError)
 
 app.use(bodyparser())
 
+
 router.use('/user',user.routes())
 app.use(router.routes(),router.allowedMethods())
 
