@@ -1,6 +1,8 @@
 const {LinValidator,Rule} = require('../../core/lin-validator')
 const {User} = require('../models/user')
 
+const { LoginType } = require('./enum')
+
 class PositiveIntergerValidator extends LinValidator {
   constructor() {
     super()
@@ -18,7 +20,7 @@ class RegisterValidator extends LinValidator {
     ]
     this.password1 = [
       new Rule('isLength','密码至少6个字符,最多32个字符',{min:6,max:32}),
-      new Rule('matches','密码不符合规范','^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A0Za-z]')
+      new Rule('matches','密码不符合规范,不能是纯数字','^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A0Za-z]')
     ]
     this.password2 = this.password1
     this.nickname = [
@@ -33,21 +35,22 @@ class RegisterValidator extends LinValidator {
     }
   }
 
-  async validateEmail(vals) {
-    const email = vals.body.email
-    const user = await User.findOne({
-      where: {
-        email: email
+   async validateEmail(vals) {
+      const email = vals.body.email
+      const user = await User.findOne({
+        where: {
+          email: email
+        }
+      })
+      if(user) {
+        throw new Error('email已经存在')
       }
-    })
-    if(user) {
-      throw new Error('email 重复!')
-    }
   }
 }
 
 class TokenValidator extends LinValidator {
   constructor() {
+    super()
     this.account = [
       new Rule('isLength','不符合账号规则', {
         min: 4,
@@ -65,9 +68,11 @@ class TokenValidator extends LinValidator {
 
   validateLoginType(vals) {
     if(!vals.body.type) {
-      throw new Error('type必须是参数')
+      throw new Error('type是参必须数')
     }
-    
+    if(!LoginType.isThisType(vals.body.type)) {
+      throw new Error('type参数不合法')
+    }
   }
 }
 
