@@ -1,3 +1,4 @@
+
 class Person {
   constructor(age) {
     this.age = age
@@ -9,6 +10,13 @@ class Person {
     console.log(v)
   }
 }
-const p = new Person(12)
 
+class Man extends Person {
+
+}
+const a = new Man()
+a.tobb = () => {
+  console.log(1)
+}
+const b = a.__proto__
 

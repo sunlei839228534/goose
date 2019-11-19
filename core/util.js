@@ -40,13 +40,11 @@ const findMembers = function (instance, {
 }
 
 const generateToken = function(uid, scope){
-    const secretKey = global.config.security.secretKey
-    const expiresIn = global.config.security.expiresIn
     const token = jwt.sign({
         uid,
         scope
-    },secretKey,{
-        expiresIn
+    },"djisnoadkfisfamodsnfsofnsaifsa", {
+        expiresIn: 60*60*24*30
     })
     return token
 }
